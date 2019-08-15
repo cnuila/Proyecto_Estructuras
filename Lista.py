@@ -11,7 +11,7 @@ class Lista:
     def vacia(self):
         pass
 
-    def elementoPosicion(self):
+    def elementoPosicion(self, posicion):
         pass
 
     def obtenersiguiente(self):
