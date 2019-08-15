@@ -2,7 +2,7 @@ from Object import Object
 
 class Pila:
 
-    def empuja(self,objeto):
+    def empuja(self,data):
         pass
 
     def tope(self):

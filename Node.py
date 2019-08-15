@@ -3,11 +3,13 @@ from Pila import Pila
 
 class Node:
 
+    #constructor
     def __init__(self):
         self.anterior = None
         self.siguiente = None
         self.data = None
 
+    #setters and getters
     def setSiguiente(next):
         self.siguiente = next
     def getSiguiente():
@@ -19,8 +21,6 @@ class Node:
         return self.anterior
 
     def setData(pData):
-        data = pData
+        self.data = pData
     def getData():
         return self.pData
-
-    #como se desreferencia como hacer el destructor
