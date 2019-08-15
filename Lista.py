@@ -1,11 +1,11 @@
-from Object import Object
+from Alumno import Alumno
 
 class Lista:
 
-    def inserta(self, objeto):
+    def inserta(self, dato, posicion):
         pass
     
-    def buscar(self, objeto):
+    def buscar(self, dato):
         pass
 
     def vacia(self):
@@ -14,10 +14,10 @@ class Lista:
     def elementoPosicion(self, posicion):
         pass
 
-    def obtenersiguiente(self):
+    def obtenersiguiente(self, posicion):
         pass
 
-    def obteneranterior(self):
+    def obteneranterior(self, posicion):
         pass
 
     def anula(self):
