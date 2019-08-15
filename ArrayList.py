@@ -36,9 +36,9 @@ class ArrayList(Lista):
     #agrega un elemento a la lista
     def inserta(self, dato, posicion):
         if posicion<= self.size+1 and posicion >= 1:
-            ampliar(self)
+            self.ampliar()
             if posicion != self.size+1:
-                #corrimiento(self)
+                #self.corrimiento()
             arreglo[posicion] = dato
             self.size+1
             return True
@@ -53,7 +53,7 @@ class ArrayList(Lista):
             return None
         
     #devuelve el objeto que está en la posición siguiente a la ingresada
-    def obtenersiguiente(self, posicion):
+    def obtenerSiguiente(self, posicion):
         if posicion >= 1 and posicion <= self.size:
             if posicion == self.size:
                 return None
@@ -63,7 +63,7 @@ class ArrayList(Lista):
             return None
 
     #devuelve el objeto que está en la posición anterior a la ingresada
-    def obteneranterior(self, posicion):
+    def obtenerAnterior(self, posicion):
         if posicion >= 1 and posicion <= self.size:
             if posicion == 1:
                 return None

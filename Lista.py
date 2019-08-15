@@ -14,10 +14,10 @@ class Lista:
     def elementoPosicion(self, posicion):
         pass
 
-    def obtenersiguiente(self, posicion):
+    def obtenerSiguiente(self, posicion):
         pass
 
-    def obteneranterior(self, posicion):
+    def obtenerAnterior(self, posicion):
         pass
 
     def anula(self):
