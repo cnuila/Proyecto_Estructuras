@@ -19,4 +19,9 @@ class Alumno:
         return self.cuenta
 
     def __str__():
-        return self.cuenta + " " + self.nombre 
+        return self.cuenta + " " + self.nombre
+    
+    def equals(self,alumn):
+        alumno = Alumno()
+        alumno = alumn
+        return self.cuenta == alumno.getCuenta()
