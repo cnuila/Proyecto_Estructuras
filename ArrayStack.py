@@ -37,7 +37,7 @@ class ArrayStack(Pila):
             return self.arreglo[self.size-1]
 
     #devuelve si la pila esta vacia
-    def vacia():
+    def vacia(self):
         return self.size == 0
 
         

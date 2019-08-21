@@ -3,19 +3,23 @@ from Node import Node
 
 class LinkedStack(Pila):
 
+    #constructor
     def __init__(self):
         self.inicio = Node()
         self.inicio = None
     
-    def Pila.vacia(self):
+    #verifica si la pila esta vacia
+    def vacia(self):
         return self.inicio == None
 
-    def tope(self):
+    #devuelve el elemento en el tope de la pila
+     tope(self):
         if self.inicio:
             return self.inicio.getData()
         else:
             return None
-    
+
+    #saca el elemento en el tope de la pila
     def saca(self):
         if self.inicio == None:
             return None
@@ -29,10 +33,12 @@ class LinkedStack(Pila):
             nodoTemp.setData(None)
             return datoTemp
     
+    #elimina el nodo del inicio desvinculando a todos los demas
     def anula(self):
         if self.inicio:
             self.inicio = None
 
+    #agrega un elemento a la pila
     def empuja(self, dato):
         nuevoNodo = Node()
         nuevoNodo.setData(dato)
