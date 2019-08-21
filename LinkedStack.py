@@ -2,7 +2,6 @@ from Pila import Pila
 from Node import Node
 
 class LinkedStack(Pila):
-
     #constructor
     def __init__(self):
         self.inicio = Node()
@@ -13,7 +12,7 @@ class LinkedStack(Pila):
         return self.inicio == None
 
     #devuelve el elemento en el tope de la pila
-     tope(self):
+    def tope(self):
         if self.inicio:
             return self.inicio.getData()
         else:

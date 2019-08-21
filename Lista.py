@@ -1,5 +1,3 @@
-from Alumno import Alumno
-
 class Lista:
 
     def inserta(self, dato, posicion):

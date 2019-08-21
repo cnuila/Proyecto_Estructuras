@@ -1,5 +1,3 @@
-from Object import Object
-
 class Pila:
 
     def empuja(self,data):

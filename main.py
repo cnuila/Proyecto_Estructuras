@@ -1,8 +1,8 @@
-import Alumno from Alumno
-import Simbolo from Simbolo
-import ArrayList from ArrayList
-import ArrayStack from ArrayStack
-import LinkedStack from LinkedStack
+#import Alumno from Alumno
+#import Simbolo from Simbolo
+#import ArrayList from ArrayList
+#import ArrayStack from ArrayStack
+#import LinkedStack from LinkedStack
 
 def main():
 
