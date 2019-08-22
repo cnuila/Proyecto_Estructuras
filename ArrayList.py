@@ -19,22 +19,11 @@ class ArrayList(Lista):
                 self.arreglo[i] = None
         self.size = 0
     
-    #amplia el arreglo
-    def ampliar(self):
-        if self.size == self.capacidad:
-            newArray = [] #new capacity
-            for i in range(self.size):
-                newArray[i] = arreglo[i]
-            arreglo = newArray
-            newCapacity = self.capacidad*2
-            self.capacidad = newCapacity
-
     #corre los elementos del arreglo
     def corrimiento(final):
         for i in range(size-1,0,-1):
             arreglo[i+1] = arreglo[i]
 
-        
     #agrega un elemento a la lista
     def inserta(self, dato, posicion):
         if posicion<= self.size+1 and posicion >= 1:
