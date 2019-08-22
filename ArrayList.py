@@ -3,8 +3,7 @@ from Lista import Lista
 class ArrayList(Lista):
 
     #constructor
-    def __init__(self, cuenta, nombre):
-        self.capacidad = 0
+    def __init__(self):
         self.size = 0
         self.arreglo = []
 
@@ -27,7 +26,6 @@ class ArrayList(Lista):
     #agrega un elemento a la lista
     def inserta(self, dato, posicion):
         if posicion<= self.size+1 and posicion >= 1:
-            self.ampliar()
             if posicion != self.size+1:
                 self.corrimiento()
             arreglo[posicion] = dato
@@ -77,4 +75,14 @@ class ArrayList(Lista):
         else:
             return None
 
-    
+    #borrar un elemento de la lista
+    def borrarElemento(self, posicion):
+        if posicion >= 1 and posicion <= self.size:
+            temp = arreglo[pos-1]
+            for i in range(posicion-1,self.size,-1):
+                arreglo[i] = arreglo[i+1]
+            arreglo[size] = None
+            self.size-1
+            return temp
+        else:
+            return None

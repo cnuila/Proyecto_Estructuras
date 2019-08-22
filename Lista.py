@@ -20,3 +20,6 @@ class Lista:
 
     def anula(self):
         pass
+
+    def borrarElemento(self, posicion):
+        pass
