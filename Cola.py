@@ -1,17 +1,17 @@
-
 #------------------------------------------Node--------------------------------------------------
+class Object:
+    def __init__(self):
+        self.wenas = "drogas"
 class Node:
     def __init__(self):
-        self.pdata= Object() 
-        self.pdata= None
-        self.anterior= Node()
-        self.anterior= None
-        self.siguiente= Node()
-        self.siguiente=None
+        #self.pdata = Object()
+        self.pdata = None
+        self.anterior = None
+        self.siguiente = None
         #self.data=data
         #self.next=None
     def setData(self,data):
-        pdata=data
+        self.pdata=data
     def getData():
         return self.data
 #----------------------------------LinkedQueue---------------------------------------------
@@ -22,15 +22,13 @@ class LinkedQueue:
         frente=None
         final=None
 
-    
-
     def isEmpty(self):
-        return frente==None
+        return self.frente == None
         
     def queue (self, data):
         newNode=Node()
         newNode.setData(pdata)
-        if final==None and frente==None:
+        if final==None and self.frente==None:
             final=newNode
             frente=newNode
         else:
@@ -76,8 +74,8 @@ class ArrayQueue:
         self.size = 0
         self.capacity = 10
         self.array = []
-        #final = Node()
-        #frente = Node()
+        final = Node()
+        frente = Node()
 
     def isEmpty(self):
         return self.size==0
@@ -107,7 +105,9 @@ class ArrayQueue:
 		        if array[i]!=None:
 			        del array[i]
         size=0
-daniel=ArrayQueue()
+
+daniel = ArrayQueue()
 print(daniel.isEmpty())
+
 jose=LinkedQueue()
 print(jose.isEmpty())
