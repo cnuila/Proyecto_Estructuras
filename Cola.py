@@ -1,72 +1,84 @@
+
 #------------------------------------------Node--------------------------------------------------
-class Object:
-    def __init__(self):
-        self.wenas = "drogas"
 class Node:
     def __init__(self):
-        #self.pdata = Object()
-        self.pdata = None
         self.anterior = None
         self.siguiente = None
-        #self.data=data
+        self.pdata=None
         #self.next=None
     def setData(self,data):
         self.pdata=data
-    def getData():
-        return self.data
+    def getData(self):
+        return self.pdata
+
+    def setSiguiente(self,next):
+        self.siguiente = next
+
+    def getSiguiente(self):
+        return self.siguiente
+
+    def setAnterior(self,prev):
+        self.anterior = prev
+
+    def getAnterior(self):
+        return self.anterior
 #----------------------------------LinkedQueue---------------------------------------------
 class LinkedQueue:
     def __init__(self):
-        self.final = Node()
-        self.frente = Node()
-        frente=None
-        final=None
-
+        self.frente=Node()
+        self.final=Node()
+        self.frente=None
+        self.final=None
+    def __del__(self):
+        if self.final:
+            del self.final
+        
     def isEmpty(self):
         return self.frente == None
         
     def queue (self, data):
-        newNode=Node()
-        newNode.setData(pdata)
-        if final==None and self.frente==None:
-            final=newNode
-            frente=newNode
+        self.newNode=Node()
+        self.newNode.setData(data)
+        if self.final==None and self.frente==None:
+            self.final=self.newNode
+            self.frente=self.newNode
         else:
-            newNode=setSiguiente(final)
-            final=setAnterior(newNode)
-            final=newNode
+            self.newNode.setSiguiente(self.final)
+            self.final.setAnterior(self.newNode)
+            self.final=self.newNode
     def front(self):
-        if frente:
-            return frente.getData()
+        if self.frente:
+            return self.frente.getData()
         else:
             return None
     def deQueue(self):
         tmp = Node()
-        if frente==None:
+        if self.frente==None:
             return None
-        elif frente==final:
-            tmp=frente
-            tmpData=0
-            tmpData= tmp.getData()
-            tmp.setData(None)
+        elif self.frente==self.final:
+            self.tmp=frente
+            self.tmpData=0
+            self.tmpData= tmp.getData()
+            self.tmp.setData(None)
             del tmp
-            frente=None
-            final=None
+            self.frente=None
+            self.final=None
+            print(tmpData)
             return tmpData
         else:
-            tmp=frente
-            frente=tmp.getAnterior()
-            tmpData=Object()
+            tmp=self.frente
+            self.frente=tmp.getAnterior()
             tmpData=tmp.getData()
             tmp.setData(None)
             del tmp
-            frente.setSiguiente(None)
+            self.frente.setSiguiente(None)
+            print(tmpData)
             return tmpData
     def clear(self):
-        if final:
-            del final
-        frente=None
-        final=None
+        if self.final:
+            del self.final
+        self.frente=None
+        self.final=None
 #--------------------------ArrayQueue------------------------
 
 class ArrayQueue:
@@ -74,40 +86,49 @@ class ArrayQueue:
         self.size = 0
         self.capacity = 10
         self.array = []
-        final = Node()
-        frente = Node()
+        self.final = Node()
+        self.frente = Node()
 
     def isEmpty(self):
         return self.size==0
 
     def queue(self,data):
-        for i in range(size+1,0,i-1): 
-		        array[i]=array[i-1]
+        self.array.append(data)
+        if self.size==0:
+            self.size=self.size+1
+        else:
+            for i in range(self.size,0,-1): 
+		            self.array[i]=self.array[i-1]
 
-        array[0]=data
-        size=size+1
+            self.array[0]=data
+            self.size=self.size+1
         print(data)
 
     def front(self):
-        if size!=0:
-            return array[size-1]
+        if self.size!=0:
+            print(self.size)
+            return self.array[self.size-1]
         else:
             return None
     
     def deQueue (self):
-        if size>0:
-            tmp=array[size-1]
-            del array[size-1]
-            size=size-1
-            return tmp
+        if self.size>0:
+            self.tmp=self.array[self.size-1]
+            del self.array[self.size-1]
+            self.size=self.size-1
+            return self.tmp
     def clear(self):
-        for i in range(size,0,i+1): 
-		        if array[i]!=None:
-			        del array[i]
-        size=0
+        for i in range(self.size,0,+1): 
+		        if self.array[i]!=None:
+			        del self.array[i]
+        self.size=0
 
 daniel = ArrayQueue()
-print(daniel.isEmpty())
-
 jose=LinkedQueue()
-print(jose.isEmpty())
+
+jose.queue(2)
+jose.queue('hey')
+print(jose.front())
+jose.deQueue()
+print(jose.front())
+jose.clear()
