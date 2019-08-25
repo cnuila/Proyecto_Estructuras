@@ -24,7 +24,7 @@ class Node:
         return self.anterior
 #----------------------------------LinkedQueue---------------------------------------------
 class LinkedQueue:
-    def __init__(self):
+    def __init__(self):#constructor de la clase en el cual se inicializan las variables
         self.frente=Node()
         self.final=Node()
         self.frente=None
@@ -33,10 +33,10 @@ class LinkedQueue:
         if self.final:
             del self.final
         
-    def isEmpty(self):
+    def isEmpty(self):#retorna verdadero si la lista esta vacia
         return self.frente == None
         
-    def queue (self, data):
+    def queue (self, data):#metodo utilizado para encolar un elemento
         self.newNode=Node()
         self.newNode.setData(data)
         if self.final==None and self.frente==None:
@@ -46,20 +46,20 @@ class LinkedQueue:
             self.newNode.setSiguiente(self.final)
             self.final.setAnterior(self.newNode)
             self.final=self.newNode
-    def front(self):
+    def front(self):#devuelve o retorna el elemento que está al frente de la cola
         if self.frente:
             return self.frente.getData()
         else:
             return None
-    def deQueue(self):
+    def deQueue(self):#Quita el elemento que esta enfrente de la cola y hace los corrimientos respectivos
         tmp = Node()
         if self.frente==None:
             return None
         elif self.frente==self.final:
-            self.tmp=frente
-            self.tmpData=0
-            self.tmpData= tmp.getData()
-            self.tmp.setData(None)
+            tmp=self.frente
+            tmpData=0
+            tmpData= tmp.getData()
+            tmp.setData(None)
             del tmp
             self.frente=None
             self.final=None
@@ -74,22 +74,27 @@ class LinkedQueue:
             self.frente.setSiguiente(None)
             print(tmpData)
             return tmpData
-    def clear(self):
+    def clear(self):#limpia, es decir elimina todos los elmentos de la cola
         if self.final:
             del self.final
         self.frente=None
         self.final=None
+    def mostrar(self,Linked):
+        nuevo=Linked
+        if(nuevo.front()!=None):
+            nuevo.deQueue()
+            nuevo.mostrar(Linked)
 #--------------------------ArrayQueue------------------------
 
 class ArrayQueue:
-    def __init__(self):
+    def __init__(self):#constructor de la clase en el cual se inicializan las variables
         self.size = 0
         self.capacity = 10
         self.array = []
         self.final = Node()
         self.frente = Node()
 
-    def isEmpty(self):
+    def isEmpty(self):#retorna verdadero si la lista esta vacia
         return self.size==0
 
     def queue(self,data):
@@ -104,31 +109,34 @@ class ArrayQueue:
             self.size=self.size+1
         print(data)
 
-    def front(self):
+    def front(self):#retorna el elemento que esta al frente de la cola, sin eliminarlo
         if self.size!=0:
             print(self.size)
             return self.array[self.size-1]
         else:
             return None
     
-    def deQueue (self):
+    def deQueue (self):#quita el elemento que esta al frente de la cola y hace sus corrimientos respectivos
         if self.size>0:
             self.tmp=self.array[self.size-1]
             del self.array[self.size-1]
             self.size=self.size-1
             return self.tmp
-    def clear(self):
+    def clear(self):#elimina todos los elementos de la lista
         for i in range(self.size,0,+1): 
 		        if self.array[i]!=None:
 			        del self.array[i]
         self.size=0
+    def mostrar(self):
+        for i in range(self.size-1,-1,-1): 
+            print (self.array[i])
 
-daniel = ArrayQueue()
-jose=LinkedQueue()
+#daniel = ArrayQueue()
+#jose=LinkedQueue()
+#jose.queue(2)
+#jose.queue('hey')
 
-jose.queue(2)
-jose.queue('hey')
-print(jose.front())
-jose.deQueue()
-print(jose.front())
-jose.clear()
+#jose.clear()
+#daniel.queue(2)
+#daniel.queue('hey')
+#jose.mostrar(jose)

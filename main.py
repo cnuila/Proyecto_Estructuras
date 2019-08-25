@@ -3,7 +3,7 @@
 #import ArrayList from ArrayList
 #import ArrayStack from ArrayStack
 #import LinkedStack from LinkedStack
-
+#import Cola from Cola
 def main():
 
     menuPrincipal = 0
@@ -117,7 +117,8 @@ def main():
                     #termina while operaciones pila
             #termina while pila
         elif menuPrincipal == 3:
-            
+            linkedqueue=LinkedQueue()
+            arrayqueue=ArrayQueue()
             opcionCola = 0
             while opcionCola != 3:
                 print("------------------------------------------------")
@@ -148,15 +149,42 @@ def main():
                         operacionCola = int(input("Ingrese su opcion: "))
 
                         if operacionCola == 1:
-                            pass
+                            if opcionCola == 1:
+                                #insetar codigo con arrayqueue
+                                data=input("Ingrese el elemento a encolar")
+                                arrayqueue.queue(data)
+                            if opcionCola == 2:
+                                #insertar codigo con linkedqueue
+                                data=input("Ingrese el dato que desea en el nuevo nodo")
+                                linkedqueue.queue(data)
                         elif operacionCola == 2:
-                            pass
+                            if opcionCola == 1:
+                                #insetar codigo con arrayqueue
+                                arrayqueue.deQueue()
+                            if opcionCola == 2:
+                                #insertar codigo con linkedqueue
+                                linkedqueue.deQueue()
                         elif operacionCola == 3:
-                            pass
+                            if opcionCola == 1:
+                                #insetar codigo con arrayqueue
+                                print(arrayqueue.front())
+                            if opcionCola == 2:
+                                #insertar codigo con linkedqueue
+                                print(linkedqueue.front())
                         elif operacionCola == 4:
-                            pass
+                            if opcionCola == 1:
+                                #insetar codigo con arrayqueue
+                                arrayqueue.isEmpty()
+                            if opcionCola == 2:
+                                #insertar codigo con linkedqueue
+                                linkedqueue.isEmpty()
                         elif operacionCola == 5:
-                            pass
+                            if opcionCola == 1:
+                                #insetar codigo con arrayqueue
+                                arrayqueue.mostrar()
+                            if opcionCola == 2:
+                                #insertar codigo con linkedqueue
+                                linkedqueue.mostrar(linkedqueue)
                         elif operacionCola == 6:
                             opcionCola = 3
                     #termina while operaciones cola
