@@ -16,8 +16,8 @@ class ArrayStack(Pila):
     
     #agrega un elemento a la pila 
     def empuja(self,data):
-        self.arreglo[self.size] = data #agrega el dato enviado al final del arreglo
-        self.size+1
+        self.arreglo.append(data) #agrega el dato enviado al final del arreglo
+        self.size = self.size+1
     
     #saca el elemento en el tope de la pila
     def saca(self):
@@ -25,8 +25,8 @@ class ArrayStack(Pila):
             return None
         else:
             datoTemp = self.arreglo[self.size-1] #se guarda temporalmente para mostrarlo
-            self.arreglo[self.size-1] = None
-            self.size-1
+            self.arreglo.pop()
+            self.size = self.size-1
             return datoTemp
     
     #Devuelve el elemento en el tope de la pila

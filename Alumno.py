@@ -1,31 +1,27 @@
 class Alumno:
 
-    #constructores
-    def __init__(self):
-        self.cuenta = ""
-        self.nombre = ""
-    
-    def __init__(cuenta, nombre):
+    #constructor
+    def __init__(self,cuenta, nombre):
         self.cuenta = cuenta
         self.nombre = nombre
 
     #setters y getters
-    def setNombre(nombre):
+    def setNombre(self,nombre):
         self.nombre = nombre
-    def getNombre():
-        return nombre
+    def getNombre(self):
+        return self.nombre
 
-    def setCuenta(cuenta):
+    def setCuenta(self,cuenta):
         self.cuenta = cuenta
-    def getCuenta():
+    def getCuenta(self):
         return self.cuenta
 
     #toString
-    def __str__():
+    def __str__(self):
         return self.cuenta + " " + self.nombre
     
     #equals
     def equals(self,alumn):
-        alumno = Alumno()
+        alumno = Alumno("","")
         alumno = alumn
         return self.cuenta == alumno.getCuenta()

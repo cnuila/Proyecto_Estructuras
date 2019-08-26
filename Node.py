@@ -1,10 +1,7 @@
-
 class Node:
 
     #constructor
     def __init__(self):
-        self.anterior = Node()
-        self.siguiente = Node()
         self.anterior = None
         self.siguiente = None
         self.data = None
@@ -20,7 +17,7 @@ class Node:
     def getAnterior(self):
         return self.anterior
 
-    def setData(Data):
+    def setData(self,Data):
         self.data = Data
-    def getData():
+    def getData(self):
         return self.data
