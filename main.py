@@ -31,7 +31,7 @@ def main():
                     "   2. Trabajar con LinkedList",
                     "   3. Regresar al Menu Principal",sep='\n')
 
-                opcionLista = int(verificarEntrada(input("Ingrese su opcion: ")))
+                opcionLista = int(verificarEntrada(input("Ingrese su opcion: ")))                
 
                 if opcionLista == 1:
                     pass
@@ -90,14 +90,15 @@ def main():
 
                 opcionPila = int(verificarEntrada(input("Ingrese su opcion: ")))
 
-                symbol = ' '
+                pila = None
 
                 if opcionPila == 1:
-                    pass
-                    #insertar codigo de Pila
+                    #se crea ArrayStack
+                    pila = ArrayStack
+
                 if opcionPila == 2:
-                    pass
-                    #insertar codigo Pila
+                    #se crea LinkedStack
+                    pila = LinkedStack()
 
                 if opcionPila == 1 or opcionPila == 2:
                     operacionesPila = 0
