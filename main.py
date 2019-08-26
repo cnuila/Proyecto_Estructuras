@@ -360,11 +360,11 @@ def main():
                         if operacionCola == 1:
                             if opcionCola == 1:
                                 #insetar codigo con arrayqueue
-                                data=input("Ingrese el elemento a encolar")
+                                data=input("Ingrese el Alumno(nombre-cuenta) a encolar")
                                 arrayqueue.queue(data)
                             if opcionCola == 2:
                                 #insertar codigo con linkedqueue
-                                data=input("Ingrese el dato que desea en el nuevo nodo")
+                                data=input("Ingrese el Alumno(nombre-cuenta) que desea en el nuevo nodo")
                                 linkedqueue.queue(data)
                         elif operacionCola == 2:
                             if opcionCola == 1:

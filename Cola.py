@@ -138,13 +138,13 @@ class ArrayQueue:
 		        if self.array[i]!=None:
 			        del self.array[i]
         self.size=0
-    def mostrar(self):
+    def mostrar(self):#metodo que muestra todos los elementos   
         for i in range(0,self.size,+1): 
             print (self.size-i-1,'-',self.array[i])
 
 #daniel = ArrayQueue()
-jose=LinkedQueue()
-jose.queue(2)
-jose.queue('hey')
+#jose=LinkedQueue()
+#jose.queue(2)
+#jose.queue('hey')
 #jose.clear()
-jose.mostrar(jose)
+#jose.mostrar(jose)
