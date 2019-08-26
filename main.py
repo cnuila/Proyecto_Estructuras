@@ -12,6 +12,14 @@ def verificarEntrada(entrada):
     else:
         return -1
 
+def imprimirLinkedStack(index,nodo):
+    isinstance(nodo,Node)
+    if nodo.getSiguiente() is None:
+        print(index,")",nodo.getData())
+    else:
+        print(index,")",nodo.getData())
+        imprimirLinkedStack(index+1,nodo.getSiguiente())
+
 def main():
 
     menuPrincipal = 0
@@ -267,21 +275,16 @@ def main():
                                 if pilaArray.vacia():
                                     print("La pila esta vacia")
                                 else:
-                                    for i in range(pilaArray.size,0,1):
-                                        print(pilaArray.size - i + 1,")",pilaArray.arreglo[i])
+                                    for i in range(pilaArray.size,0,-1):
+                                        print(pilaArray.size - i + 1,")",pilaArray.arreglo[i-1])
                             
                             if opcionPila == 2:
                                 if pilaNodos.vacia():
                                     print("La pila esta vacia")
                                 else:
                                     nodeTemp = pilaNodos.inicio
-                                    index = 1
+                                    imprimirLinkedStack(1,nodeTemp)
                                     
-                                    while nodeTemp.getSiguiente() is not None:
-                                        print(index,")",nodeTemp.getData())
-                                        nodeTemp = nodeTemp.getSiguiente()
-                                        index = index + 1
-
                         elif operacionesPila == 6:
                             opcionPila = 3
                     #termina while operaciones pila
