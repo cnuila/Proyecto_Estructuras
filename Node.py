@@ -2,8 +2,6 @@ class Node:
 
     #constructor
     def __init__(self):
-        self.anterior = Node()
-        self.siguiente = Node()
         self.anterior = None
         self.siguiente = None
         self.data = None

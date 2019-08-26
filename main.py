@@ -90,15 +90,9 @@ def main():
 
                 opcionPila = int(verificarEntrada(input("Ingrese su opcion: ")))
 
-                pila = None
+                pilaArray = ArrayStack()
 
-                if opcionPila == 1:
-                    #se crea ArrayStack
-                    pila = ArrayStack
-
-                if opcionPila == 2:
-                    #se crea LinkedStack
-                    pila = LinkedStack()
+                pilaNodos = LinkedStack()
 
                 if opcionPila == 1 or opcionPila == 2:
                     operacionesPila = 0
@@ -114,15 +108,73 @@ def main():
                         operacionesPila = int(verificarEntrada(input("Ingrese su opcion: ")))
 
                         if operacionesPila == 1:
-                            pass
+
+                            print()
+                            symboloTemp = str(input("Ingrese su simbolo(solo se tomara el primer caracter en caso de ingresar un cadena): "))[0]
+                            simbolo = Simbolo(symboloTemp)
+
+                            if opcionPila == 1:
+                                pilaArray.empuja(simbolo)
+                                print(pilaArray.size)
+
+                            if opcionPila == 2:
+                                pilaNodos.empuja(simbolo)
+
                         elif operacionesPila == 2:
-                            pass
+
+                            if opcionPila == 1:
+                                if pilaArray.vacia():
+                                    print("La pila esta vacia, no hay elementos para sacar")
+                                else:
+                                    print("El elemento eliminado fue",pilaArray.saca())
+                            
+                            if opcionPila == 2:
+                                if pilaNodos.vacia():
+                                    print("La pila esta vacia, no hay elementos para sacar")
+                                else:
+                                    print("El elemento eliminado fue ",pilaArray.saca())
+
                         elif operacionesPila == 3:
-                            pass
+
+                            if opcionPila == 1:
+                                if pilaArray.vacia():
+                                    print("La pila esta vacia, no hay tope")
+                                else:
+                                    print("El tope es",pilaArray.tope())
+
+                            if opcionPila == 2:
+                                if pilaNodos.vacia():
+                                    print("La pila esta vacia, no hay tope")
+                                else:
+                                    print("El tope es",pilaNodos.tope())
+                                
                         elif operacionesPila == 4:
-                            pass
+
+                            if (opcionPila == 1 and pilaArray.vacia()) or (opcionPila == 2 and pilaNodos.vacia()):
+                                print("La pila esta vacia")
+                            else:
+                                print("La pila no esta vacia")
+                            
                         elif operacionesPila == 5:
-                            pass
+                            
+                            if opcionPila == 1:
+                                if pilaArray.vacia():
+                                    print("La pila esta vacia")
+                                else:
+                                    for i in range(pilaArray.size,0,1):
+                                        print(pilaArray.size - i + 1,")",pilaArray.arreglo[i])
+                            
+                            if opcionPila == 2:
+                                if pilaNodos.vacia():
+                                    print("La pila esta vacia")
+                                else:
+                                    nodeTemp = pilaNodos.inicio
+                                    index = 1
+                                    while nodeTemp.getSiguiente() is not None:
+                                        print(index,")",nodeTemp.getData())
+                                        nodeTemp = nodeTemp.getSiguiente()
+                                        index = index + 1
+
                         elif operacionesPila == 6:
                             opcionPila = 3
                     #termina while operaciones pila
