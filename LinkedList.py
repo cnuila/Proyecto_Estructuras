@@ -10,12 +10,18 @@ class LinkedList(Lista):
     #Agrega elemento a la lista en la posicion ingresada
     def inserta(self, dato, posicion):
         newNode = Node()
-        newNode.setData(dato) 
+        newNode.setData(dato)
+        tmp = self.inicio
         if self.inicio == None:
             self.inicio = newNode
             self.size = self.size + 1
-        elif posicion>=1 and posicion<=self.size:
-            tmp = self.inicio
+            return True
+        elif posicion == 1:
+            tmp.setAnterior(newNode)
+            newNode.setSiguiente(tmp)
+            self.size = self.size + 1
+            return True
+        elif posicion>1 and posicion<self.size:
             for i in range(posicion-1):
                 tmp = tmp.getSiguiente()
             tmp.getSiguiente().setAnterior(newNode)
@@ -23,9 +29,16 @@ class LinkedList(Lista):
             newNode.setAnterior(tmp)
             tmp.setSiguiente(newNode)
             self.size = self.size + 1
+            return True
+        elif posicion==self.size:
+            for i in range(posicion):
+                tmp = tmp.getSiguiente()
+            tmp.setSiguiente(newNode)
+            newNode.setAnterior(tmp)
+            self.size = self.size + 1
+            return True
         else:
-            return None
-        pass
+            return False
     #Elimina el elemento en la posicion ingresada
     def borrarElemento(self, posicion):
         tmp = self.inicio
@@ -33,15 +46,15 @@ class LinkedList(Lista):
             self.inicio = tmp.getSiguiente()
             tmp.getSiguiente().setAnterior(None)
             tmp.setSiguiente(None)
-        elif posicion == self.size:
-            tmp.getAnterior().setSiguiente(None)
-            tmp.setAnterior(None)
         elif posicion>1 and posicion<self.size:
             for i in range(posicion):
                 tmp = tmp.getSiguiente()
             tmp.getSiguiente().setAnterior(tmp.getAnterior())
             tmp.getAnterior().setSiguiente(tmp.getSiguiente())
             tmp.setSiguiente(None)
+            tmp.setAnterior(None)
+        elif posicion == self.size:
+            tmp.getAnterior().setSiguiente(None)
             tmp.setAnterior(None)
         else:
             return None
@@ -86,4 +99,8 @@ class LinkedList(Lista):
             return None
     #Vacia la lista
     def anula(self):
-        self.inicio.setSiguiente(None)
+        if self.inicio!= None:
+            self.inicio.setSiguiente(None)
+        else:
+            print("La lista esta vacia")
+            return None
