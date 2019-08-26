@@ -78,8 +78,8 @@ def main():
                                         print("El elemento no fue agregado. Ingrese una posicion valida")
                                 else:
                                     print("La posicion que ha ingresado no es valida")                                
-                            print("----------------------------","1. Ingresar nuevo elemento","2. Regresar al menu", sep='\n')
-                            opcioningresar = int(input("Ingrese una opcion: "))
+                                print("----------------------------","1. Ingresar nuevo elemento","2. Regresar al menu", sep='\n')
+                                opcioningresar = int(input("Ingrese una opcion: "))
                             #termina el while para ingresar otro elemento
                         #termina la primera opcion - agregar
                         elif operacionLista == 2:
@@ -110,16 +110,11 @@ def main():
                         #termina la segunda opcion - buscar un elemento
                         elif operacionLista == 4:
                             if opcionLista == 1:
-                                numeroCuenta = int(input("Ingrese el número de cuenta del alumno: "))
-                                nombre = str(input("Ingrese el nombre del alumno: "))
-                                dato = Alumno(numeroCuenta, nombre)
-                                posicion = 3000
-                                posicion = arraylist.buscar(dato)
-                                if posicion != 3000:
-                                    nuevaPosicion = int(posicion+1)
-                                    print("La posicion del alumno es: ", nuevaPosicion+1)
-                                else:
-                                    print("El alumno no se encuentra en la lista.")
+                                posicion = int(input("Ingrese la posición del elemento que desea eliminar: "))
+                                posicion = posicion-1
+                                nuevoSize = arraylist.size
+                                if (posicion <= nuevoSize) and (posicion >= 0):
+                                    print("El elemento fue borrado exitosamente, ", arraylist.borrarElemento(posicion))
                             if opcionLista == 2:
                                 #código de linkedlist
                                 pass

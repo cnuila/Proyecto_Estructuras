@@ -70,7 +70,7 @@ class ArrayList(Lista):
 
     #borrar un elemento de la lista
     def borrarElemento(self, posicion):
-            temp = self.arreglo[posicion-1]
+            temp = self.arreglo[posicion]
             for i in range(posicion-1,self.size-1,1):
                 self.arreglo[i] = self.arreglo[i+1]
             self.arreglo.pop()
