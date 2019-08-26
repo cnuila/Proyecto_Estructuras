@@ -25,8 +25,8 @@ class ArrayStack(Pila):
             return None
         else:
             datoTemp = self.arreglo[self.size-1] #se guarda temporalmente para mostrarlo
-            self.arreglo[self.size-1] = None
-            self.size-1
+            self.arreglo.pop()
+            self.size = self.size-1
             return datoTemp
     
     #Devuelve el elemento en el tope de la pila
