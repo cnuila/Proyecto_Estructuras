@@ -33,7 +33,7 @@ class LinkedList(Lista):
             self.inicio = tmp.getSiguiente()
             tmp.getSiguiente().setAnterior(None)
             tmp.setSiguiente(None)
-        elif posicion = self.size:
+        elif posicion == self.size:
             tmp.getAnterior().setSiguiente(None)
             tmp.setAnterior(None)
         elif posicion>1 and posicion<self.size:
