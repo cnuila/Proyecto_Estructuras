@@ -115,7 +115,6 @@ def main():
 
                             if opcionPila == 1:
                                 pilaArray.empuja(simbolo)
-                                print(pilaArray.size)
 
                             if opcionPila == 2:
                                 pilaNodos.empuja(simbolo)
