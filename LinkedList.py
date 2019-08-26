@@ -18,7 +18,7 @@ class LinkedList(Lista):
         return self.inicio == None
 
     def elementoPosicion(self, posicion):
-        if posicion>=1 and posicion<=size:
+        if posicion>=1 and posicion<=self.size:
             tmp = self.inicio
             for i in range(self.size):
                 tmp = tmp.getSiguiente()
@@ -27,11 +27,11 @@ class LinkedList(Lista):
             return None
 
     def obtenerSiguiente(self, posicion):
-        elementoPosicion(posicion+1)
+        self.elementoPosicion(posicion+1)
         pass
 
     def obtenerAnterior(self, posicion):
-        elementoPosicion(posicion-1)
+        self.elementoPosicion(posicion-1)
         pass
 
     def anula(self):

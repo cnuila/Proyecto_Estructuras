@@ -1,15 +1,12 @@
 class Simbolo:
     
     #constructores
-    def __init__(self):
-        self.symbol = ''
-    
     def __init__(self, symbol):
         self.symbol = symbol
 
     #setters y getters
     def setSymbol(self, symbol):
-        self.setSymbol = symbol
+        self.symbol = symbol
     def getSymbol(self):
         return self.symbol
 
@@ -19,6 +16,6 @@ class Simbolo:
     
     #equals
     def equals(self,simbol):
-        symbolTemp = Simbolo()
+        symbolTemp = Simbolo('')
         symbolTemp = simbol
         return self.symbol == symbolTemp.getSymbol()
