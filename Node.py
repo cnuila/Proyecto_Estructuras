@@ -1,28 +1,26 @@
+from Object import Object
+from Pila import Pila
+
 class Node:
 
     #constructor
     def __init__(self):
-        self.anterior = Node()
-        self.siguiente = Node()
         self.anterior = None
         self.siguiente = None
         self.data = None
-        
-    #setters and getters
-    def setSiguiente(self,next):
-        self.siguiente = next
 
-    def getSiguiente(self):
+    #setters and getters
+    def setSiguiente(next):
+        self.siguiente = next
+    def getSiguiente():
         return self.siguiente
 
-    def setAnterior(self,prev):
+    def setAnterior(prev):
         self.anterior = prev
-
-    def getAnterior(self):
+    def getAnterior():
         return self.anterior
 
-    def setData(self,Data):
-        self.data = Data
-
-    def getData(self):
-        return self.data
+    def setData(pData):
+        self.data = pData
+    def getData():
+        return self.pData
