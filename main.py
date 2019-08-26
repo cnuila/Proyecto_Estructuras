@@ -246,7 +246,7 @@ def main():
                                 if pilaNodos.vacia():
                                     print("La pila esta vacia, no hay elementos para sacar")
                                 else:
-                                    print("El elemento eliminado fue ",pilaArray.saca())
+                                    print("El elemento eliminado fue ",pilaNodos.saca())
 
                         elif operacionesPila == 3:
 
@@ -284,7 +284,7 @@ def main():
                                 else:
                                     nodeTemp = pilaNodos.inicio
                                     imprimirLinkedStack(1,nodeTemp)
-                                    
+
                         elif operacionesPila == 6:
                             opcionPila = 3
                     #termina while operaciones pila
