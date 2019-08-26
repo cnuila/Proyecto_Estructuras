@@ -90,6 +90,8 @@ def main():
 
                 opcionPila = int(verificarEntrada(input("Ingrese su opcion: ")))
 
+                symbol = ' '
+
                 if opcionPila == 1:
                     pass
                     #insertar codigo de Pila

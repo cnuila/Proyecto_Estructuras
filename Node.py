@@ -19,7 +19,7 @@ class Node:
     def getAnterior(self):
         return self.anterior
 
-    def setData(Data):
+    def setData(self,Data):
         self.data = Data
-    def getData():
+    def getData(self):
         return self.data

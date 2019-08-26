@@ -19,16 +19,16 @@ class ArrayList(Lista):
         self.size = 0
     
     #corre los elementos del arreglo
-    def corrimiento(final):
-        for i in range(size-1,0,-1):
-            arreglo[i+1] = arreglo[i]
+    def corrimiento(self,final):
+        for i in range(self.size-1,0,-1):
+            self.arreglo[i+1] = self.arreglo[i]
 
     #agrega un elemento a la lista
     def inserta(self, dato, posicion):
         if posicion<= self.size+1 and posicion >= 1:
             if posicion != self.size+1:
                 self.corrimiento()
-            arreglo[posicion] = dato
+            self.arreglo[posicion] = dato
             self.size+1
             return True
         else:
@@ -37,7 +37,7 @@ class ArrayList(Lista):
     #devuelve el objeto que está en la posición ingresada
     def elementoPosicion(self, posicion):
         if posicion >= 1 and posicion <= self.size:
-            return arreglo[pos]
+            return self.arreglo[pos]
         else:
             return None
         
@@ -47,7 +47,7 @@ class ArrayList(Lista):
             if posicion == self.size:
                 return None
             else:
-                return arreglo[pos+1]
+                return self.arreglo[pos+1]
         else:
             return None
 
@@ -57,7 +57,7 @@ class ArrayList(Lista):
             if posicion == 1:
                 return None
             else:
-                return arreglo[posicion-1]
+                return self.arreglo[posicion-1]
         else:
             return None
 
@@ -78,10 +78,10 @@ class ArrayList(Lista):
     #borrar un elemento de la lista
     def borrarElemento(self, posicion):
         if posicion >= 1 and posicion <= self.size:
-            temp = arreglo[pos-1]
+            temp = self.arreglo[pos-1]
             for i in range(posicion-1,self.size,-1):
-                arreglo[i] = arreglo[i+1]
-            arreglo[size] = None
+                self.arreglo[i] = self.arreglo[i+1]
+            self.arreglo[self.size] = None
             self.size-1
             return temp
         else:
