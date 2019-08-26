@@ -1,18 +1,26 @@
-#import Alumno from Alumno
-#import Simbolo from Simbolo
-#import ArrayList from ArrayList
-#import ArrayStack from ArrayStack
-#import LinkedStack from LinkedStack
-#import Cola from Cola
+from Alumno import *
+from Simbolo import *
+from ArrayList import *
+from ArrayStack import *
+from LinkedStack import *
+from Cola import *
+
+#verifica que se una entrada valida
+def verificarEntrada(entrada):
+    if str(entrada).isdigit():
+        return entrada
+    else:
+        return -1
+
 def main():
 
     menuPrincipal = 0
 
-    while menuPrincipal != 4:
+    while menuPrincipal != 4 :
         print("------------------------------------------------")
         print("1. Trabajar con Listas","2. Trabajar con Pilas",
         "3. Trabajar con Colas","4. Salir",sep='\n')
-        menuPrincipal = int(input("Ingrese su opcion: "))
+        menuPrincipal = int(verificarEntrada(input("Ingrese su opcion: ")))
 
         if menuPrincipal == 1:
 
@@ -23,7 +31,7 @@ def main():
                     "   2. Trabajar con LinkedList",
                     "   3. Regresar al Menu Principal",sep='\n')
 
-                opcionLista = int(input("Ingrese su opcion: "))
+                opcionLista = int(verificarEntrada(input("Ingrese su opcion: ")))
 
                 if opcionLista == 1:
                     pass
@@ -47,7 +55,7 @@ def main():
                         "   8. Obtener Anterior",
                         "   9. Borrar todos los Elementos(Anula)",
                         "  10. Regresar al Menu Principal",sep='\n')
-                        operacionLista = int(input("Ingrese su opcion: "))
+                        operacionLista = int(verificarEntrada(input("Ingrese su opcion: ")))
 
                         if operacionLista == 1:
                             pass
@@ -80,7 +88,7 @@ def main():
                     "   2. Trabajar con LinkedStack",
                     "   3. Regresar al Menu Principal",sep='\n')
 
-                opcionPila = int(input("Ingrese su opcion: "))
+                opcionPila = int(verificarEntrada(input("Ingrese su opcion: ")))
 
                 if opcionPila == 1:
                     pass
@@ -100,7 +108,7 @@ def main():
                         "   4. Verificar si esta vacia",
                         "   5. Imprimir elementos",
                         "   6. Regresar al Menu Principal",sep='\n')
-                        operacionesPila = int(input("Ingrese su opcion: "))
+                        operacionesPila = int(verificarEntrada(input("Ingrese su opcion: ")))
 
                         if operacionesPila == 1:
                             pass
@@ -126,7 +134,7 @@ def main():
                     "   2. Trabajar con LinkedQueue",
                     "   3. Regresar al Menu Principal",sep='\n')
                 
-                opcionCola = int(input("Ingrese su opcion: "))
+                opcionCola = int(verificarEntrada(input("Ingrese su opcion: ")))
 
                 if opcionCola == 1:
                     pass
@@ -146,7 +154,7 @@ def main():
                         "   4. Verificar si esta vacia",
                         "   5. Imprimir elementos",
                         "   6. Regresar al Menu Principal",sep='\n')
-                        operacionCola = int(input("Ingrese su opcion: "))
+                        operacionCola = int(verificarEntrada(input("Ingrese su opcion: ")))
 
                         if operacionCola == 1:
                             if opcionCola == 1:
