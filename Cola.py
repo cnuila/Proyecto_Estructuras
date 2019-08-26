@@ -34,7 +34,11 @@ class LinkedQueue:
             del self.final
         
     def isEmpty(self):#retorna verdadero si la lista esta vacia
-        return self.frente == None
+        if self.frente == None:   
+            return 'Esta vacia'
+        else:
+            return 'No esta vacia'
+        
         
     def queue (self, data):#metodo utilizado para encolar un elemento
         self.newNode=Node()
@@ -46,10 +50,12 @@ class LinkedQueue:
             self.newNode.setSiguiente(self.final)
             self.final.setAnterior(self.newNode)
             self.final=self.newNode
+        print('Ingresado con exito')
     def front(self):#devuelve o retorna el elemento que está al frente de la cola
         if self.frente:
             return self.frente.getData()
         else:
+            print('Esta vacia')
             return None
     def deQueue(self):#Quita el elemento que esta enfrente de la cola y hace los corrimientos respectivos
         tmp = Node()
@@ -58,7 +64,7 @@ class LinkedQueue:
         elif self.frente==self.final:
             tmp=self.frente
             tmpData=0
-            tmpData= tmp.getData()
+            tmpData=tmp.getData()
             tmp.setData(None)
             del tmp
             self.frente=None
@@ -74,6 +80,7 @@ class LinkedQueue:
             self.frente.setSiguiente(None)
             print(tmpData)
             return tmpData
+    
     def clear(self):#limpia, es decir elimina todos los elmentos de la cola
         if self.final:
             del self.final
@@ -83,7 +90,7 @@ class LinkedQueue:
         nuevo=Linked
         if(nuevo.front()!=None):
             nuevo.deQueue()
-            nuevo.mostrar(Linked)
+            nuevo.mostrar(nuevo)
 #--------------------------ArrayQueue------------------------
 
 class ArrayQueue:
@@ -95,7 +102,10 @@ class ArrayQueue:
         self.frente = Node()
 
     def isEmpty(self):#retorna verdadero si la lista esta vacia
-        return self.size==0
+        if self.size==0:   
+            return 'Esta vacia'
+        else:
+            return 'No esta vacia'
 
     def queue(self,data):
         self.array.append(data)
@@ -107,36 +117,34 @@ class ArrayQueue:
 
             self.array[0]=data
             self.size=self.size+1
-        print(data)
+        print(data,', registrado con exito')
 
     def front(self):#retorna el elemento que esta al frente de la cola, sin eliminarlo
         if self.size!=0:
             print(self.size)
             return self.array[self.size-1]
         else:
-            return None
+            return 'Esta vacia'
     
     def deQueue (self):#quita el elemento que esta al frente de la cola y hace sus corrimientos respectivos
         if self.size>0:
-            self.tmp=self.array[self.size-1]
+            tmp=self.array[self.size-1]
             del self.array[self.size-1]
             self.size=self.size-1
-            return self.tmp
+            print(tmp,' retirado con exito')
+            return tmp
     def clear(self):#elimina todos los elementos de la lista
         for i in range(self.size,0,+1): 
 		        if self.array[i]!=None:
 			        del self.array[i]
         self.size=0
     def mostrar(self):
-        for i in range(self.size-1,-1,-1): 
-            print (self.array[i])
+        for i in range(0,self.size,+1): 
+            print (self.size-i-1,'-',self.array[i])
 
 #daniel = ArrayQueue()
-#jose=LinkedQueue()
-#jose.queue(2)
-#jose.queue('hey')
-
+jose=LinkedQueue()
+jose.queue(2)
+jose.queue('hey')
 #jose.clear()
-#daniel.queue(2)
-#daniel.queue('hey')
-#jose.mostrar(jose)
+jose.mostrar(jose)
