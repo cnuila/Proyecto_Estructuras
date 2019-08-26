@@ -24,6 +24,7 @@ class LinkedList(Lista):
         elif posicion>1 and posicion<self.size:
             for i in range(posicion-1):
                 tmp = tmp.getSiguiente()
+            isinstance(tmp.getSiguiente(),Node)
             tmp.getSiguiente().setAnterior(newNode)
             newNode.setSiguiente(tmp.getSiguiente())
             newNode.setAnterior(tmp)
@@ -66,7 +67,6 @@ class LinkedList(Lista):
                 return i
             else:
                 tmp = tmp.getSiguiente()
-        pass
     #Verifica si la lista esta vacia
     def vacia(self):
         return self.inicio == None

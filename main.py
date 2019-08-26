@@ -51,7 +51,7 @@ def main():
                         "   2. Imprimir Elementos",
                         "   3. Buscar Elemento",
                         "   4. Borrar Elemento",
-                        "   5. Ver si esta vacia",
+                        "   5. vacia",
                         "   6. Obtener Elemento por Posicion",
                         "   7. Obetener Siguiente",
                         "   8. Obtener Anterior",
