@@ -13,6 +13,7 @@ class LinkedList(Lista):
         tmp = self.inicio
         newNode = Node()
         newNode.setData(dato)
+
         if self.inicio == None:
             self.inicio = newNode
             self.size = self.size + 1
@@ -30,12 +31,15 @@ class LinkedList(Lista):
             newNode.setAnterior(tmp)
             tmp.setSiguiente(newNode)
             self.size = self.size + 1
-            print("Se agrego el elemento exitosamente en la posicion ", posicion)
-        elif posicion==self.size:
-            for _ in range(posicion):
-                tmp = tmp.getSiguiente()
-            tmp.setSiguiente(newNode)
-            newNode.setAnterior(tmp)
+            print("Se agrego el elemento exitosamente en la posicion ",posicion)
+        elif posicion==self.size+1:
+            temporal = Node()
+            temporal.setData(dato)
+            temporal.setSiguiente(temporal)
+            for _ in range(posicion-1):
+                temporal = temporal.getSiguiente()
+            temporal.setSiguiente(newNode)
+            newNode.setAnterior(temporal)
             self.size = self.size + 1
             print("Se agrego el elemento exitosamente en la posicion ",posicion)
         else:

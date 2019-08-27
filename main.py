@@ -21,11 +21,19 @@ def imprimirLinkedStack(index,nodo):
         print(index,")",nodo.getData())
         imprimirLinkedStack(index+1,nodo.getSiguiente())
 
+def imprimirLinkedlist(index,nodo):
+    if nodo.getSiguiente() is None:
+        print(index,")",nodo.getData().getCuenta())
+        print(index,")",nodo.getData().getNombre())
+    else:
+        print(index,")",nodo.getData().getCuenta())
+        print(index,")",nodo.getData().getNombre())
+        imprimirLinkedlist(index+1,nodo.getSiguiente())
 def main():
 
     menuPrincipal = 0
     arraylist = ArrayList()
-
+    linkedlist = LinkedList()
     while menuPrincipal != 4 :
         print("------------------------------------------------")
         print("1. Trabajar con Listas","2. Trabajar con Pilas",
@@ -59,13 +67,13 @@ def main():
                         "   9. Borrar todos los Elementos(Anula)",
                         "  10. Regresar al Menu Principal",sep='\n')
                         operacionLista = int(verificarEntrada(input("Ingrese su opcion: ")))
-                        linkedlist = LinkedList()
+                        
                         if operacionLista == 1:
                             opcioningresar = 0
                             while opcioningresar != 2:
                                 if opcionLista == 1:
                                 #datos del alumno y posición
-                                    numeroCuenta = int(input("Ingrese el numero de cuenta del alumno: "))
+                                    numeroCuenta = str(input("Ingrese el numero de cuenta del alumno: "))
                                     nombre = str(input("Ingrese el nombre del alumno: "))
                                     dato = Alumno(numeroCuenta, nombre)
                                     posicion = int(input("Ingrese la posicion en la que desea insertar el elemento, la lista empieza en 1: "))
@@ -82,7 +90,8 @@ def main():
                                     nombre = str(input("Ingrese el nombre del alumno: "))
                                     dato = Alumno(numeroCuenta, nombre)
                                     posicion = int(input("Ingrese la posicion en la que desea insertar el elemento, la lista empieza en 1: ")) 
-                                    linkedlist.inserta(dato,posicion)        
+                                    linkedlist.inserta(dato,posicion)  
+                                    print(linkedlist.inicio.getData().getCuenta())      
                                 print("----------------------------","1. Ingresar nuevo elemento","2. Regresar al menu", sep='\n')
                                 opcioningresar = int(input("Ingrese una opcion: "))
                             #termina el while para ingresar otro elemento
@@ -99,7 +108,7 @@ def main():
                                     print("La lista esta vacia")
                                 else:
                                     nodeTemp = linkedlist.inicio
-                                    imprimirLinkedStack(1,nodeTemp)
+                                    imprimirLinkedlist(1,nodeTemp)
                         #termina la segunda opcion - listar los elementos
                         elif operacionLista == 3:
                              numeroCuenta = int(input("Ingrese el numero de cuenta del alumno: "))

@@ -18,7 +18,7 @@ class Alumno:
 
     #toString
     def __str__(self):
-        return self.cuenta + " " + self.nombre
+        return self.cuenta , " " , self.nombre
     
     #equals
     def equals(self,alumn):
