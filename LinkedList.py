@@ -7,6 +7,7 @@ class LinkedList(Lista):
         self.inicio = Node()
         self.inicio = None
         self.size = 0
+    
     #Agrega elemento a la lista en la posicion ingresada
     def inserta(self, dato, posicion):
         tmp = self.inicio
@@ -39,6 +40,7 @@ class LinkedList(Lista):
             print("Se agrego el elemento exitosamente en la posicion ",posicion)
         else:
             print("No se agrego el elemento, Ingrese una posicion valida")
+
     #Elimina el elemento en la posicion ingresada
     def borrarElemento(self, posicion):
         if posicion==1:
@@ -67,6 +69,7 @@ class LinkedList(Lista):
             self.size = self.size -1
         else:
             return None
+
     #Devuelve la posicion del dato a buscar
     def buscar(self, dato):
         tmp = self.inicio
@@ -75,12 +78,14 @@ class LinkedList(Lista):
                 return i
             else:
                 tmp = tmp.getSiguiente()
+    
     #Verifica si la lista esta vacia
     def vacia(self):
         if self.inicio == None:
             return True
         else:
             return False
+
     #Devuelve el dato en la posicion mandada
     def elementoPosicion(self, posicion):
         if posicion>=1 and posicion<=self.size:
@@ -90,6 +95,7 @@ class LinkedList(Lista):
             return tmp.getData()
         else:
             print("Ingreso una posicion incorrecta.")
+
     #Devuelve el dato siguiente a la posicion ingresada
     def obtenerSiguiente(self, posicion):
         if posicion>=1 and posicion<self.size:
@@ -99,6 +105,7 @@ class LinkedList(Lista):
             return tmp.getData()
         else:
             print("Ingreso una posicion incorrecta.")
+
     #Devuelve el dato anterior a la posicion ingresada
     def obtenerAnterior(self, posicion):
         if posicion>1 and posicion<=self.size:
@@ -108,6 +115,7 @@ class LinkedList(Lista):
             return tmp.getData()
         else:
             print("Ingreso una posicion incorrecta.")
+
     #Vacia la lista
     def anula(self):
         if self.inicio!= None:
