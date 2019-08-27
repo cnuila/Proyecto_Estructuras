@@ -7,40 +7,38 @@ class LinkedList(Lista):
         self.inicio = Node()
         self.inicio = None
         self.size = 0
-    
     #Agrega elemento a la lista en la posicion ingresada
     def inserta(self, dato, posicion):
+        tmp = self.inicio
         newNode = Node()
         newNode.setData(dato)
-        tmp = self.inicio
         if self.inicio == None:
             self.inicio = newNode
             self.size = self.size + 1
-            return True
+            print("Se agrego el elemento exitosamente al primer nodo")
         elif posicion == 1:
             tmp.setAnterior(newNode)
             newNode.setSiguiente(tmp)
             self.size = self.size + 1
-            return True
+            print("Se agrego el elemento exitosamente en la posicion 1")
         elif posicion>1 and posicion<self.size:
-            for _ in range(2,posicion-1,1):
+            for _ in range(posicion-1):
                 tmp = tmp.getSiguiente()
             tmp.getSiguiente().setAnterior(newNode)
             newNode.setSiguiente(tmp.getSiguiente())
             newNode.setAnterior(tmp)
             tmp.setSiguiente(newNode)
             self.size = self.size + 1
-            return True
+            print("Se agrego el elemento exitosamente en la posicion ", posicion)
         elif posicion==self.size:
             for _ in range(posicion):
                 tmp = tmp.getSiguiente()
             tmp.setSiguiente(newNode)
             newNode.setAnterior(tmp)
             self.size = self.size + 1
-            return True
+            print("Se agrego el elemento exitosamente en la posicion ",posicion)
         else:
-            return False
-
+            print("No se agrego el elemento, Ingrese una posicion valida")
     #Elimina el elemento en la posicion ingresada
     def borrarElemento(self, posicion):
         if posicion==1:
@@ -89,7 +87,7 @@ class LinkedList(Lista):
             tmp = self.inicio
             for _ in range(2,posicion):
                 tmp = tmp.getSiguiente()
-            print("El dato del elemento en la posicion ",posicion, "es " ,tmp.getData())
+            return tmp.getData()
         else:
             print("Ingreso una posicion incorrecta.")
     #Devuelve el dato siguiente a la posicion ingresada
@@ -98,7 +96,7 @@ class LinkedList(Lista):
             tmp = self.inicio
             for _ in range(2,posicion):
                 tmp = tmp.getSiguiente()
-            print("El dato del elemento siguiente a la posicion ",posicion, "es " ,tmp.getData())
+            return tmp.getData()
         else:
             print("Ingreso una posicion incorrecta.")
     #Devuelve el dato anterior a la posicion ingresada
@@ -107,7 +105,7 @@ class LinkedList(Lista):
             tmp = self.inicio
             for _ in range(2,posicion):
                 tmp = tmp.getSiguiente()
-            print("El dato del elemento anterior a la posicion ",posicion, "es " ,tmp.getData())
+            return tmp.getData()
         else:
             print("Ingreso una posicion incorrecta.")
     #Vacia la lista
