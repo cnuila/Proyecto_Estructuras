@@ -31,35 +31,42 @@ class ArrayList(Lista):
             self.corrimiento(posicion)
         self.arreglo.insert(posicion,dato)
         self.size = self.size+1
-        return True
+        #return self.arreglo
 
     #devuelve el objeto que está en la posición ingresada
     def elementoPosicion(self, posicion):
-        print(posicion)
-        temp = self.arreglo[posicion-1]
-        return temp
+        nombre = self.arreglo[posicion].getNombre()
+        cuenta = self.arreglo[posicion].getCuenta()
+        return nombre, cuenta
         
     #devuelve el objeto que está en la posición siguiente a la ingresada
     def obtenerSiguiente(self, posicion):
-        if posicion == self.size:
-            return None
+        if posicion == self.size-1:
+            nombre = ""
+            cuenta = ""
+            return nombre, cuenta
         else:
-            return self.arreglo[posicion]
+            nombre = self.arreglo[posicion+1].getNombre()
+            cuenta = self.arreglo[posicion+1].getCuenta()
+            return nombre, cuenta
 
     #devuelve el objeto que está en la posición anterior a la ingresada
     def obtenerAnterior(self, posicion):
-            if posicion == 1:
-                return None
-            else:
-                temp = self.arreglo[posicion-2]
-                return temp
+        if posicion == 0:
+            nombre = ""
+            cuenta = ""
+            return nombre, cuenta
+        else:
+            nombre = self.arreglo[posicion-1].getNombre()
+            cuenta = self.arreglo[posicion-1].getCuenta()
+            return nombre, cuenta
 
     #busca un objeto dentro de la lista
     def buscar(self, dato):
         validacion = False
         posicion = -1
         for i in range(self.size):
-            if self.arreglo[i] == dato:
+            if self.arreglo[i].getCuenta() == dato:
                 validacion = True
                 posicion = i
                 break
@@ -70,9 +77,17 @@ class ArrayList(Lista):
 
     #borrar un elemento de la lista
     def borrarElemento(self, posicion):
-            temp = self.arreglo[posicion]
-            for i in range(posicion-1,self.size-1,1):
-                self.arreglo[i] = self.arreglo[i+1]
-            self.arreglo.pop()
-            self.size = self.size-1
-            return temp
+        print("Nombre del alumno: ",self.arreglo[posicion].getNombre()," numero de cuenta: ",self.arreglo[posicion].getCuenta())
+        self.arreglo[posicion].setNombre("")
+        self.arreglo[posicion].setCuenta("")
+        #temp = self.arreglo[posicion]
+        for i in range(posicion,self.size-1,1):
+            self.arreglo[i] = self.arreglo[i+1]
+
+        self.size = self.size-1
+        #return temp
+
+    #imprime los elementos de la lista
+    def imprimir(self):
+        for i in range(self.size):
+            print("Nombre del estudiante:",self.arreglo[i].getNombre(),",numero de cuenta:", self.arreglo[i].getCuenta())
