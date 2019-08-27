@@ -52,9 +52,9 @@ def main():
                         "   2. Imprimir Elementos",
                         "   3. Buscar Elemento",
                         "   4. Borrar Elemento",
-                        "   5. vacia",
+                        "   5. Ver si la lista esta vacia",
                         "   6. Obtener Elemento por Posicion",
-                        "   7. Obetener Siguiente",
+                        "   7. Obtener Siguiente",
                         "   8. Obtener Anterior",
                         "   9. Borrar todos los Elementos(Anula)",
                         "  10. Regresar al Menu Principal",sep='\n')
@@ -74,11 +74,11 @@ def main():
                                     if (posicion <= nuevoSize) and (posicion >= 0):
                                         arraylist.inserta(dato, posicion)
                                         arraylist.imprimir()
-                                        print("El elemento fue agregado exitosamente", arraylist.size)
+                                        print("El elemento fue agregado exitosamente")
                                     else:
                                         print("El elemento no fue agregado. Ingrese una posicion valida")
                                 if opcionLista == 2:
-                                    numeroCuenta = int(input("Ingrese el número de cuenta del alumno: "))
+                                    numeroCuenta = int(input("Ingrese el numero de cuenta del alumno: "))
                                     nombre = str(input("Ingrese el nombre del alumno: "))
                                     dato = Alumno(numeroCuenta, nombre)
                                     posicion = int(input("Ingrese la posicion en la que desea insertar el elemento, la lista empieza en 1: ")) 
@@ -93,11 +93,11 @@ def main():
                         #termina la primera opcion - agregar
                         elif operacionLista == 2:
                             if opcionLista == 1:
-                                if arraylist.vacia() == 0:
+                                #print(arraylist.size)
+                                if arraylist.vacia() != 0:
                                     print("La lista esta vacia")
                                 else:
-                                    for i in range(arraylist.size,0,1):
-                                        arraylist.imprimir(arraylist)
+                                    arraylist.imprimir()
                             if opcionLista == 2:
                                 if linkedlist.vacia() != 0:
                                     print("La lista esta vacia")
@@ -108,13 +108,12 @@ def main():
                         elif operacionLista == 3:
                              numeroCuenta = int(input("Ingrese el numero de cuenta del alumno: "))
                              nombre = str(input("Ingrese el nombre del alumno: "))
-                             dato = Alumno(numeroCuenta, nombre)
                              if opcionLista == 1:
                                 posicion = 3000
-                                posicion = arraylist.buscar(dato)
+                                posicion = arraylist.buscar(numeroCuenta)
                                 if posicion != 3000:
                                     nuevaPosicion = int(posicion+1)
-                                    print("La posicion del alumno es: ", nuevaPosicion+1)
+                                    print("La posicion del alumno es: ",nuevaPosicion)
                                 else:
                                     print("El alumno no se encuentra en la lista.")
                              if opcionLista == 2:
@@ -123,25 +122,26 @@ def main():
                                     print("La posicion del alumno es: ", posicion) 
                                 else:
                                     print("El Alumno no esta en la lista")   
-                        #termina la segunda opcion - buscar un elemento
+                        #termina la tercera opcion - buscar un elemento
                         elif operacionLista == 4:
                             if opcionLista == 1:
                                 posicion = int(input("Ingrese la posicion del elemento que desea eliminar: "))
                                 posicion = posicion-1
                                 nuevoSize = arraylist.size
                                 if (posicion <= nuevoSize) and (posicion >= 0):
-                                    print("El elemento fue borrado exitosamente, ", arraylist.borrarElemento(posicion))
+                                    arraylist.borrarElemento(posicion)
+                                    print("El elemento fue borrado exitosamente")
                             if opcionLista == 2:
                                 posicion = int(input("Ingrese la posicion del elemento que desea eliminar: "))
                                 if posicion >= 0 and posicion <= linkedlist.size:
                                     linkedlist.borrarElemento(posicion)
                                     print("El elemento fue borrado exitosamente")
                                 pass
-                        #termina la segunda opcion - buscar un elemento
+                        #termina la cuarta opcion - buscar un elemento
                         elif operacionLista == 5:
                             if opcionLista == 1:
                                 listaVacia = arraylist.vacia()
-                                if listaVacia != 0:
+                                if listaVacia == 0:
                                     print("La lista no esta vacia")
                                 else:
                                     print("La lista esta vacia")
@@ -159,11 +159,8 @@ def main():
                                 nuevoSize = arraylist.size
                                 nuevaPosicion = posicion-1
                                 if (nuevaPosicion <= nuevoSize) and (nuevaPosicion >= 0):
-                                    #elemento = arraylist.elementoPosicion(nuevaPosicion)
-                                    #if(elemento != None):
-                                    temp = arraylist[posicion]
-                                    print("El elemento de la posicion ",posicion," es: ", temp)
-                                    #print("El elemento que se encuentra en la posicion ",nuevaPosicion, " es: ",newArray.elementoPosicion(nuevaPosicion, newArray))
+                                    nombre, cuenta = arraylist.elementoPosicion(nuevaPosicion)
+                                    print("El elemento de la posicion",posicion,"es:",'\n',"Nombre del alumno:",nombre,", numero de cuenta:",cuenta)
                             else:
                                 print("La posicion que ha ingresado no es valida")
                             if opcionLista == 2:
@@ -175,12 +172,14 @@ def main():
                             if opcionLista == 1:
                                 posicion = int(input("Ingrese la posicion del elemento: "))
                                 nuevoSize = arraylist.size+1
+                                nuevaPosicion = posicion-1
                                 if (posicion <= nuevoSize) and (posicion >= 0):
-                                    elemento = arraylist.obtenerSiguiente(posicion)
-                                    if elemento != None:
-                                        print("El siguiente elemento de la posicion ", posicion, " es: ", elemento)
+                                    nombre, cuenta = arraylist.obtenerSiguiente(nuevaPosicion)
+                                    arraylist.obtenerSiguiente(nuevaPosicion)
+                                    if nombre != "":
+                                        print("El siguiente elemento de la posicion", posicion, " es: ",'\n',"Nombre del alumno:",nombre,", numero de cuenta:",cuenta)
                                     else:
-                                        print("EL elemento siguiente esta vacio")
+                                        print("El elemento siguiente esta vacio")
                                 else:
                                     print("La posicion que ha ingresado no es valida")
                             if opcionLista == 2:
@@ -198,12 +197,14 @@ def main():
                             if opcionLista == 1:
                                 posicion = int(input("Ingrese la posicion del elemento: "))
                                 nuevoSize = arraylist.size+1
+                                nuevaPosicion = posicion-1
                                 if (posicion <= nuevoSize) and (posicion >= 0):
-                                    elemento = arraylist.obtenerAnterior(posicion)
-                                    if elemento != None:
-                                        print("El elemento anterior de la posicion ", posicion, " es: ", elemento)
+                                    nombre, cuenta = arraylist.obtenerAnterior(nuevaPosicion)
+                                    arraylist.obtenerAnterior(nuevaPosicion)
+                                    if nombre != "":
+                                        print("El elemento anterior de la posicion", posicion, " es: ",'\n',"Nombre del alumno:",nombre,", numero de cuenta:",cuenta)
                                     else:
-                                        print("La posicion anterior esta vacia")
+                                        print("El elemento anterior no existe")
                                 else:
                                     print("La posicion que ha ingresado no es valida")
                             if opcionLista == 2:
@@ -213,7 +214,7 @@ def main():
                                     if elemento != None:
                                         print("El siguiente elemento de la posicion ", posicion, " es: ", elemento)
                                     else:
-                                        print("EL elemento siguiente esta vacio")
+                                        print("El elemento siguiente esta vacio")
                                 else:
                                     print("La posicion que ha ingresado no es valida")
                         #termina la octava opcion - obtener el anterior
