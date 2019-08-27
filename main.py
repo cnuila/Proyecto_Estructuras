@@ -24,6 +24,7 @@ def imprimirLinkedStack(index,nodo):
 def main():
 
     menuPrincipal = 0
+    arraylist = ArrayList()
 
     while menuPrincipal != 4 :
         print("------------------------------------------------")
@@ -58,27 +59,24 @@ def main():
                         "   9. Borrar todos los Elementos(Anula)",
                         "  10. Regresar al Menu Principal",sep='\n')
                         operacionLista = int(verificarEntrada(input("Ingrese su opcion: ")))
-                        arraylist = ArrayList()
                         linkedlist = LinkedList()
                         if operacionLista == 1:
                             opcioningresar = 0
                             while opcioningresar != 2:
                                 if opcionLista == 1:
                                 #datos del alumno y posición
-                                    numeroCuenta = int(input("Ingrese el número de cuenta del alumno: "))
+                                    numeroCuenta = int(input("Ingrese el numero de cuenta del alumno: "))
                                     nombre = str(input("Ingrese el nombre del alumno: "))
                                     dato = Alumno(numeroCuenta, nombre)
                                     posicion = int(input("Ingrese la posicion en la que desea insertar el elemento, la lista empieza en 1: "))
                                     posicion = posicion-1
                                     nuevoSize = arraylist.size
                                     if (posicion <= nuevoSize) and (posicion >= 0):
-                                        condicion = arraylist.inserta(dato, posicion)
-                                        if condicion:
-                                            print("El elemento fue agregado exitosamente")
-                                        else:
-                                            print("El elemento no fue agregado. Ingrese una posicion valida")
+                                        arraylist.inserta(dato, posicion)
+                                        arraylist.imprimir()
+                                        print("El elemento fue agregado exitosamente", arraylist.size)
                                     else:
-                                        print("La posicion que ha ingresado no es valida")
+                                        print("El elemento no fue agregado. Ingrese una posicion valida")
                                 if opcionLista == 2:
                                     numeroCuenta = int(input("Ingrese el número de cuenta del alumno: "))
                                     nombre = str(input("Ingrese el nombre del alumno: "))
@@ -99,7 +97,7 @@ def main():
                                     print("La lista esta vacia")
                                 else:
                                     for i in range(arraylist.size,0,1):
-                                        print(arraylist.size - i + 1,")",arraylist.arreglo[i])
+                                        arraylist.imprimir(arraylist)
                             if opcionLista == 2:
                                 if linkedlist.vacia() != 0:
                                     print("La lista esta vacia")
@@ -108,7 +106,7 @@ def main():
                                     imprimirLinkedStack(1,nodeTemp)
                         #termina la segunda opcion - listar los elementos
                         elif operacionLista == 3:
-                             numeroCuenta = int(input("Ingrese el número de cuenta del alumno: "))
+                             numeroCuenta = int(input("Ingrese el numero de cuenta del alumno: "))
                              nombre = str(input("Ingrese el nombre del alumno: "))
                              dato = Alumno(numeroCuenta, nombre)
                              if opcionLista == 1:
@@ -128,13 +126,13 @@ def main():
                         #termina la segunda opcion - buscar un elemento
                         elif operacionLista == 4:
                             if opcionLista == 1:
-                                posicion = int(input("Ingrese la posición del elemento que desea eliminar: "))
+                                posicion = int(input("Ingrese la posicion del elemento que desea eliminar: "))
                                 posicion = posicion-1
                                 nuevoSize = arraylist.size
                                 if (posicion <= nuevoSize) and (posicion >= 0):
                                     print("El elemento fue borrado exitosamente, ", arraylist.borrarElemento(posicion))
                             if opcionLista == 2:
-                                posicion = int(input("Ingrese la posición del elemento que desea eliminar: "))
+                                posicion = int(input("Ingrese la posicion del elemento que desea eliminar: "))
                                 if posicion >= 0 and posicion <= linkedlist.size:
                                     linkedlist.borrarElemento(posicion)
                                     print("El elemento fue borrado exitosamente")
@@ -163,7 +161,9 @@ def main():
                                 if (nuevaPosicion <= nuevoSize) and (nuevaPosicion >= 0):
                                     #elemento = arraylist.elementoPosicion(nuevaPosicion)
                                     #if(elemento != None):
-                                    print("El elemento que se encuentra en la posicion ",nuevaPosicion, " es: ",arraylist.elementoPosicion(nuevaPosicion))
+                                    temp = arraylist[posicion]
+                                    print("El elemento de la posicion ",posicion," es: ", temp)
+                                    #print("El elemento que se encuentra en la posicion ",nuevaPosicion, " es: ",newArray.elementoPosicion(nuevaPosicion, newArray))
                             else:
                                 print("La posicion que ha ingresado no es valida")
                             if opcionLista == 2:
@@ -190,7 +190,7 @@ def main():
                                         if elemento != None:
                                             print("El siguiente elemento de la posicion ", posicion, " es: ", elemento)
                                         else:
-                                            print("EL elemento siguiente esta vacio")
+                                            print("El elemento siguiente esta vacio")
                                 else:
                                     print("La posicion que ha ingresado no es valida")
                         #termina la septima opcion - obtener el siguiente elemento

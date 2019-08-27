@@ -31,12 +31,11 @@ class ArrayList(Lista):
             self.corrimiento(posicion)
         self.arreglo.insert(posicion,dato)
         self.size = self.size+1
-        return True
+        return self.arreglo
 
     #devuelve el objeto que está en la posición ingresada
-    def elementoPosicion(self, posicion):
-        print(posicion)
-        temp = self.arreglo[posicion-1]
+    def elemento_Posicion(self, posicion, newArray):
+        temp = newArray[posicion]###############################################33
         return temp
         
     #devuelve el objeto que está en la posición siguiente a la ingresada
@@ -76,3 +75,8 @@ class ArrayList(Lista):
             self.arreglo.pop()
             self.size = self.size-1
             return temp
+
+    #imprime los elementos de la lista
+    def imprimir(self):
+        for i in range(self.size):
+            print("Nombre del estudiante: ",self.arreglo[i].getNombre(),", cuenta: ", self.arreglo[i].getCuenta())
