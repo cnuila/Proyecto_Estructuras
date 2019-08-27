@@ -31,14 +31,3 @@ class LinkedList(Lista):
             return tmp.getData()
         else:
             return None
-
-    def obtenerSiguiente(self, posicion):
-        self.elementoPosicion(posicion+1)
-        pass
-
-    def obtenerAnterior(self, posicion):
-        self.elementoPosicion(posicion-1)
-        pass
-
-    def anula(self):
-        pass
